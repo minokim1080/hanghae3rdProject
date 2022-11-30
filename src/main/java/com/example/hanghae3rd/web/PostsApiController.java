@@ -30,20 +30,20 @@ public class PostsApiController {
 
     //게시글 수정
     @PutMapping("/posts/{postId}")
-    public Long updatePosts(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto){
-        return postsService.update(id, requestDto);
+    public Long updatePosts(@PathVariable Long postId, @RequestBody PostsUpdateRequestDto requestDto){
+        return postsService.update(postId, requestDto);
     }
 
     //게시글 조회
     @GetMapping("/posts/{postId}")
-    public PostsResponseDto showPostsDetail(@PathVariable Long id){
-        return postsService.findById(id);
+    public PostsResponseDto showPostsDetail(@PathVariable Long postId){
+        return postsService.findById(postId);
     }
 
     //게시글 삭제
     @DeleteMapping("/posts/{postId}")
-    public Long deletePosts(@PathVariable Long id){
-        postsService.delete(id);
-        return id;
+    public Long deletePosts(@PathVariable Long postId){
+        postsService.delete(postId);
+        return postId;
     }
 }
