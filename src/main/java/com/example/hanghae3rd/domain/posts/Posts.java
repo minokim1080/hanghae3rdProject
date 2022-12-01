@@ -20,24 +20,25 @@ public class Posts extends BaseTimeEntity {
     private String title;
 
     @Column(length = 10, nullable = false)
-    private String name;
+    private String author;
 
     @Column(length = 256, nullable = false)
-    private String pw; //해쉬로 반영해서 넣을 수 있으면 변경
+    private String password; //해쉬로 반영해서 넣을 수 있으면 변경
 
     @Column(columnDefinition = "TEXT")
     private String content;
 
     @Builder
-    public Posts(String title, String name, String pw, String content){
+    public Posts(String title, String author, String password, String content){
         this.title = title;
-        this.name = name;
-        this.pw = pw;
+        this.author = author;
+        this.password = password;
         this.content = content;
     }
 
-    public void update(String title, String content){
+    public void update(String title, String content, String author){
         this.title = title;
         this.content = content;
+        this.author = author;
     }
 }

@@ -11,23 +11,23 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class PostsSaveRequestDto {
     private String title;
-    private String name;
-    private String pw;
+    private String author;
+    private String password;
     private String content;
 
     @Builder
-    public PostsSaveRequestDto(String title, String name, String pw, String content){
+    public PostsSaveRequestDto(String title, String name, String password, String content){
         this.title = title;
-        this.name = name;
-        this.pw = pw;
+        this.author = name;
+        this.password = password;
         this.content = content;
     }
 
     public Posts toEntity(){
         return Posts.builder()
                 .title(title)
-                .name(name)
-                .pw(pw)
+                .author(author)
+                .password(password)
                 .content(content)
                 .build();
     }
